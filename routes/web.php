@@ -3,8 +3,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\Front\MessageController as FrontMessageController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Front\HomeController;
 use App\Http\Livewire\Admin\Dashboard;
 use Illuminate\Support\Facades\URL;
 
@@ -22,7 +24,7 @@ use Illuminate\Support\Facades\URL;
 // Front Routes
 Route::get('/', function(){
     return view('front.welcome');
-})->name('home');
+})->name('wellcome');
 
 // Admin Routes
 Route::middleware([
@@ -51,7 +53,8 @@ Route::middleware([
         });
     });
 
-    
+    Route::get('home', [HomeController::class, 'index'])->name('home');
+    Route::get('conversation/{userId}', [FrontMessageController::class, 'conversation'])->name('message.conversation');
 
 });
 
