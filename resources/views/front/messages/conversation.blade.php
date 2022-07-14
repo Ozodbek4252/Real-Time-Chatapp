@@ -206,10 +206,23 @@
         <div class="card" style="margin-bottom: 0px; height: 100vh;">
           <div class="p-3 px-lg-4 border-bottom">
             <div class="row">
-              <div class="col-md-4 col-6">
+              <div class="col-md-4 col-6" style="display: flex; align-items: center;">
+                <div class="flex-shrink-0 align-self-center me-3">
+                  <div class="user-img online">
+                    <div class="avatar-xs align-self-center">
+                      <span class="avatar-title rounded-circle bg-soft-primary text-primary">
+                        {{ $user->name[0] }}{{ $user->last_name[0] }}
+                      </span>
+                    </div>
+                    <span class="user-status"></span>
+                  </div>
+                </div>
                 <h5 class="font-size-16 mb-1 text-truncate"><a href="chat.html#"
                     class="text-dark">{{ $friendInfo->name }} {{ $friendInfo->last_name }}</a>
                 </h5>
+
+
+
               </div>
               <div class="col-md-8 col-6">
                 <ul class="list-inline user-chat-nav text-end mb-0">
@@ -495,7 +508,13 @@
 
                 </div>
               </div>
-              <div class="col-auto">
+              <div class="col-auto" style="padding-left: 0px;">
+                
+
+                <button class="btn btn-light btn-sm btn-file-upload waves-effect waves-light" style="margin-right: 6px;">
+                  <div class="fa fa-paperclip "></div>
+                </button>
+
                 <button type="submit" class="btn btn-primary chat-send w-md waves-effect waves-light"><span
                     class="d-none d-sm-inline-block me-2">Send</span> <i class="mdi mdi-send float-end"></i></button>
               </div>
